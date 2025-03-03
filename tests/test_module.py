@@ -3,7 +3,7 @@ from hypothesis import given
 
 import minitorch
 
-from .strategies import med_ints, small_floats
+from strategies import med_ints, small_floats
 
 # # Tests for module.py
 
@@ -41,6 +41,12 @@ class ModuleA4(minitorch.Module):
         super().__init__()
         self.p3 = minitorch.Parameter(15)
 
+mod = ModuleA1()
+np = dict(mod.named_parameters())
+
+x = str(mod)
+print(x)
+print(np)
 
 @pytest.mark.task0_4
 def test_stacked_demo() -> None:
